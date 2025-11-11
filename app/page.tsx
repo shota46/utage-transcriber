@@ -41,7 +41,7 @@ export default function Home() {
       setVideoUrl(data.videoUrl)
       setStep('detected')
       setLoading(false)
-    } catch (err) {
+    } catch (_err) {
       setError('動画の検出に失敗しました')
       setLoading(false)
     }
@@ -71,7 +71,7 @@ export default function Home() {
       setTranscript(data.text)
       setStep('completed')
       setLoading(false)
-    } catch (err) {
+    } catch (_err) {
       setError('文字起こしに失敗しました')
       setLoading(false)
       setStep('detected')
@@ -99,7 +99,7 @@ export default function Home() {
 
       setSummary(data.summary)
       setSummaryLoading(false)
-    } catch (err) {
+    } catch (_err) {
       setError('要約に失敗しました')
       setSummaryLoading(false)
     }

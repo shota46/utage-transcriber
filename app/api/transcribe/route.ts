@@ -1,13 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server'
 import OpenAI from 'openai'
 import ffmpeg from 'fluent-ffmpeg'
-import { writeFile, unlink } from 'fs/promises'
+import { unlink } from 'fs/promises'
 import { join } from 'path'
 import { tmpdir } from 'os'
 
 // ffmpegのパスを設定（ローカルとVercelで自動切り替え）
 if (process.env.VERCEL) {
   // Vercel環境ではffmpeg-staticを使用
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path
   ffmpeg.setFfmpegPath(ffmpegPath)
 } else {
